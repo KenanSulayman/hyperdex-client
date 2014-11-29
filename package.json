@@ -1,12 +1,22 @@
 {
-  "name": "hyperdex-client",
-  "description": "hyperdex client",
-  "version": "0.0.7",
-  "author": "Alyssa Kwan <alyssa@nodeprime.com>",
+  "name": "hyperdex",
+  "description": "Hyperdex client and Bindings for Node.js",
+  "version": "0.0.8",
+  "author": "Kenan Sulayman <kenan@sly.mn>",
   "repository": {
     "type": "git",
-    "url": "http://github.com/alyssa-nodeprime-com/node-hyperdex-client"
+    "url": "https://github.com/KenanSulayman/hyperdex-client"
   },
+  "contributors": [{
+    "name": "Kenan Sulayman",
+    "email": "kenan@sly.mn"
+  }, {
+    "name": "rescrv",
+    "email": "robert@rescrv.net"
+  }, {
+    "name": "Alyssa Kwan",
+    "email": "alyssa@nodeprime.com"
+  }],
   "keywords": ["hyperdex"],
   "scripts": {
     "build": "node-gyp configure build"
