@@ -9,6 +9,9 @@ PLATFORM=`uname`
 
 mkdir -p $BUILD_TMP
 
+POPT_VERSION=1.16
+POPT=popt-$POPT_VERSION
+
 JSON_C_VERSION=0.11
 JSON_C=json-c-$JSON_C_VERSION
 
@@ -26,6 +29,16 @@ REPLICANT=replicant-$REPLICANT_VERSION
 
 HYPERDEX_VERSION=1.3.dev
 HYPERDEX=hyperdex-$HYPERDEX_VERSION
+
+# Build popt
+cd "$BUILD_TMP"
+if [ ! -e "$POPT" ]; then
+    tar xzf "$ROOT/deps/$POPT.tar.gz"
+fi
+cd "$POPT"
+./configure --prefix="$BUILD"
+make
+make install
 
 # Build json-c
 cd "$BUILD_TMP"
@@ -77,6 +90,7 @@ if [ ! -e "$REPLICANT" ]; then
 fi
 cd "$REPLICANT"
 ./configure --prefix="$BUILD" \
+    POPT_CFLAGS=-I"${BUILD}/include" POPT_LIBS=-L"${BUILD}/lib" \
     PO6_CFLAGS=-I"${BUILD}/include" PO6_LIBS=-L"${BUILD}/lib" \
     E_CFLAGS=-I"${BUILD}/include" E_LIBS=-L"${BUILD}/lib" \
     BUSYBEE_CFLAGS=-I"${BUILD}/include" BUSYBEE_LIBS=-L"${BUILD}/lib" \
