@@ -1,7 +1,7 @@
 {
   "name": "hyperdex",
   "description": "Hyperdex client and Bindings for Node.js",
-  "version": "0.0.8",
+  "version": "0.0.9-1",
   "author": "Kenan Sulayman <kenan@sly.mn>",
   "repository": {
     "type": "git",
